@@ -1,0 +1,15 @@
+{:source-paths ["src"]
+ :builds
+ {:app {:target :browser
+        :output-dir "js"
+        :asset-path "/js"
+        :module-loader true
+        :modules {:main {:entries [app.main]}
+                  :moduleA {:entries [app.A]
+                            :depends-on #{:main}}
+                  :moduleB {:entries [app.B]
+                            :depends-on #{:main}}
+                  :moduleC {:entries [app.C]
+                            :depends-on #{:main}}}
+        :devtools {:http-root    "."
+                   :http-port    8888}}}}
